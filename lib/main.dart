@@ -28,7 +28,7 @@ class MyApp extends StatelessWidget {
       darkTheme: ThemeData.dark(),
       themeMode: themeController.theme,
       translations: TranslationService(), // your translations
-      locale: ((storage.read(localeKey) == "english"))? Locale('en', 'US') : Locale('bn', 'BN'),
+      locale: ((storage.read(localeKey) ?? "english") == "english")? Locale('en', 'US') : Locale('bn', 'BN'),
       fallbackLocale: const Locale('en', 'US'),
       getPages: AppPages.pages,
       initialRoute: Get.find<AuthController>().isLoggedIn()
