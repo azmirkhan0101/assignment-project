@@ -60,7 +60,7 @@ class LoginView extends StatelessWidget {
                   bool isSuccess = authController.errorMessage.isEmpty;//NO ERROR
                   showSnackBar(
                       title: isSuccess? LocaleKeys.loginSuccess.tr : LocaleKeys.loginFailed.tr,
-                      message: isSuccess? "Welcome back! Your login was successful." : authController.errorMessage.value,
+                      message: isSuccess? LocaleKeys.welcomeBack.tr : authController.errorMessage.value,
                       isSuccess: isSuccess);
               },),
             ],

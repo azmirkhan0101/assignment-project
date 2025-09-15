@@ -6,8 +6,7 @@ class ThemeController extends GetxController {
   final _box = GetStorage();
   final _key = 'isDarkMode';
 
-  // Rx wrapper
-  RxBool isDarkMode = false.obs;
+  var isDarkMode = false.obs;
 
   ThemeMode get theme => isDarkMode.value ? ThemeMode.dark : ThemeMode.light;
 

@@ -1,6 +1,7 @@
 import 'package:assignment_app/controllers/article_controller.dart';
 import 'package:assignment_app/models/article_model.dart';
 import 'package:assignment_app/routes/app_pages.dart';
+import 'package:assignment_app/utils/locale_keys.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -23,7 +24,13 @@ class ArticleView extends StatelessWidget {
   Widget build(BuildContext context) {
 
     return Scaffold(
-      appBar: AppBar(title: Text("Articles")),
+      appBar: AppBar(title: Text( LocaleKeys.articles.tr ),
+        actions: [
+          IconButton(onPressed: (){
+            Get.toNamed( Routes.SETTINGS_VIEW);
+          }, icon: Icon(Icons.settings))
+        ],
+      ),
       body: Obx(() {
         //DATA LOADING
         if (articleController.isLoading.value == true &&
@@ -34,7 +41,7 @@ class ArticleView extends StatelessWidget {
         if (articleController.displayedArticles.isEmpty == true ) {
           return Center(
             child: Text(
-              "No articles available",
+              LocaleKeys.noArticles.tr,
               style: TextStyle(color: Colors.red),
             ),
           );

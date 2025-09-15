@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 class TranslationService extends Translations {
   @override
   Map<String, Map<String, String>> get keys => {
-    'en': {
+    'en_US': {
       'select_language': 'Select Language',
       'login_page': 'Login Page',
       'email': 'Email',
@@ -20,8 +20,10 @@ class TranslationService extends Translations {
       'downloading': 'Downloading...',
       'articles': 'Articles',
       'no_articles': 'No articles available',
+      'settings': 'Settings',
+      'change_theme': 'Change Theme',
     },
-    'bn': {
+    'bn_BN': {
       'select_language': 'ভাষা নির্বাচন করুন',
       'login_page': 'লগইন পেজ',
       'email': 'ইমেইল',
@@ -38,6 +40,8 @@ class TranslationService extends Translations {
       'downloading': 'ডাউনলোড হচ্ছে...',
       'articles': 'প্রবন্ধসমূহ',
       'no_articles': 'কোনো প্রবন্ধ পাওয়া যায়নি',
+      'settings': 'সেটিংস',
+      'change_theme': 'থিম পরিবর্তন',
     },
   };
 }

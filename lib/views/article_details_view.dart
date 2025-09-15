@@ -2,6 +2,7 @@ import 'package:assignment_app/controllers/download_controller.dart';
 import 'package:assignment_app/models/article_model.dart';
 import 'package:assignment_app/routes/app_pages.dart';
 import 'package:assignment_app/utils/api_endpoints.dart';
+import 'package:assignment_app/utils/locale_keys.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -13,19 +14,13 @@ class ArticleDetailsView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("Article Details"),
-      actions: [
-        IconButton(onPressed: (){
-          Get.toNamed( Routes.SETTINGS_VIEW);
-        }, icon: Icon(Icons.settings))
-      ],
+      appBar: AppBar(title: Text( LocaleKeys.articleDetails.tr ),
       ),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
-
             Text("${model.title}",
               style: TextStyle(
                 fontWeight: FontWeight.bold,
@@ -59,10 +54,10 @@ class ArticleDetailsView extends StatelessWidget {
   //ASK DOWNLOAD
   void showAskDownloadDialog(){
     Get.defaultDialog(
-      title: "Download PDF File",
-      middleText: "Do you want to download the PDF file?",
-        textConfirm: "Download",
-      textCancel: "Cancel",
+      title: LocaleKeys.downloadPdf.tr,
+      middleText: LocaleKeys.downloadPdfQuestion.tr,
+        textConfirm: LocaleKeys.download.tr,
+      textCancel: LocaleKeys.cancel.tr,
       onConfirm: (){
         Get.back();
         showDownloadingProgressDialog();
@@ -76,7 +71,7 @@ class ArticleDetailsView extends StatelessWidget {
   //DOWNLOADING PROGRESS
   void showDownloadingProgressDialog(){
     Get.defaultDialog(
-        title: "Downloading...",
+        title: LocaleKeys.downloading.tr,
         barrierDismissible: false,
         content: Column(
           children: [

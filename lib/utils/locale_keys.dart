@@ -20,4 +20,6 @@ class LocaleKeys {
   static const downloading = 'downloading';
 
   static const noArticles = 'no_articles';
+  static const settings = 'settings';
+  static const changeTheme = 'change_theme';
 }
