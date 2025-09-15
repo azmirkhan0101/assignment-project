@@ -41,7 +41,7 @@ class AuthController extends GetxController{
        storage.write( tokenKey, json['token']);
        emailController.clear();
        passwordController.clear();
-       Get.offAllNamed(Routes.ARTICLE_LIST_VIEW);
+       Get.offAllNamed(Routes.ARTICLE_VIEW);
      }
 
      errorMessage.value = json['error'] ?? '';//HANDLES ALL THE ERRORS

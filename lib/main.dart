@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       getPages: AppPages.pages,
       initialRoute: Get.find<AuthController>().isLoggedIn()
-          ? Routes.ARTICLE_LIST_VIEW
+          ? Routes.ARTICLE_VIEW
           : Routes.LOGIN_VIEW,
     );
   }

@@ -15,6 +15,18 @@ class LoginView extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
+              DropdownButton<String>(
+                hint: Text("Select Language"),
+                items: [
+                  DropdownMenuItem(value: "english", child: Text("English")),
+                  DropdownMenuItem(value: "bengali", child: Text("বাংলা")),
+                ],
+                onChanged: (value) {
+                  if (value != null) {
+                    //Get.updateLocale(Locale(value));
+                  }
+                },
+              ),
               Icon(Icons.login, size: 80,),
               SizedBox(
                 height: 10,

@@ -1,5 +1,7 @@
 import 'package:assignment_app/bindings/auth_binding.dart';
-import 'package:assignment_app/views/article_list_view.dart';
+import 'package:assignment_app/bindings/article_binding.dart';
+import 'package:assignment_app/views/article_details_view.dart';
+import 'package:assignment_app/views/article_view.dart';
 import 'package:assignment_app/views/login_view.dart';
 import 'package:get/get.dart';
 part 'app_routes.dart';
@@ -13,9 +15,16 @@ class AppPages{
         }
         ),
     GetPage(
-        name: Routes.ARTICLE_LIST_VIEW,
+        name: Routes.ARTICLE_VIEW,
         page: (){
-          return ArticleListView();
+          return ArticleView();
+        },
+    binding: ArticleBinding(),
+    ),
+    GetPage(
+        name: Routes.ARTICLE_DETAILS_VIEW,
+        page: (){
+          return ArticleDetailsView();
         })
   ];
 }
