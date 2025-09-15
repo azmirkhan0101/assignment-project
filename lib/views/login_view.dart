@@ -1,4 +1,5 @@
 import 'package:assignment_app/controllers/auth_controller.dart';
+import 'package:assignment_app/utils/locale_keys.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -15,23 +16,11 @@ class LoginView extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              DropdownButton<String>(
-                hint: Text("Select Language"),
-                items: [
-                  DropdownMenuItem(value: "english", child: Text("English")),
-                  DropdownMenuItem(value: "bengali", child: Text("বাংলা")),
-                ],
-                onChanged: (value) {
-                  if (value != null) {
-                    //Get.updateLocale(Locale(value));
-                  }
-                },
-              ),
               Icon(Icons.login, size: 80,),
               SizedBox(
                 height: 10,
               ),
-              Text("Login Page", style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold, color: Colors.blue),),
+              Text(LocaleKeys.loginPage.tr, style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold, color: Colors.blue),),
               SizedBox(
                 height: 15,
               ),
@@ -41,7 +30,7 @@ class LoginView extends StatelessWidget {
                 child: TextField(
                   controller: authController.emailController,
                   decoration: InputDecoration(
-                    hintText: "email",
+                    hintText: LocaleKeys.email.tr,
                     border: OutlineInputBorder(),
                   ),
                 ),
@@ -53,7 +42,7 @@ class LoginView extends StatelessWidget {
                   controller: authController.passwordController,
                   obscureText: true,
                   decoration: InputDecoration(
-                    hintText: "password",
+                    hintText: LocaleKeys.password.tr,
                     border: OutlineInputBorder(),
                   ),
                 ),
@@ -65,12 +54,12 @@ class LoginView extends StatelessWidget {
                   backgroundColor: Colors.blue,
                   shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12))
                 ),
-                  child: Text("Login", style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 16),),
+                  child: Text(LocaleKeys.login.tr, style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 16),),
               onPressed: () async{
                   await authController.loginUser();
                   bool isSuccess = authController.errorMessage.isEmpty;//NO ERROR
                   showSnackBar(
-                      title: isSuccess? "Successfully Logged In" : "Login Failed!",
+                      title: isSuccess? LocaleKeys.loginSuccess.tr : LocaleKeys.loginFailed.tr,
                       message: isSuccess? "Welcome back! Your login was successful." : authController.errorMessage.value,
                       isSuccess: isSuccess);
               },),
