@@ -32,19 +32,24 @@ class AuthController extends GetxController{
       "email": emailController.text,
       "password": passwordController.text
     };
-     http.Response response = await http.post( Uri.parse( ApiEndpoints.LOGIN_URL ),
-         body: jsonEncode( body ), headers: headers);
 
-    final json = jsonDecode( response.body );
-     if( response.statusCode == 200 ) { //LOGIN SUCCESS
-       storage.write( loginCheckingKey, true );
-       storage.write( tokenKey, json['token']);
-       emailController.clear();
-       passwordController.clear();
-       Get.offAllNamed(Routes.ARTICLE_VIEW);
-     }
+    try{
+      http.Response response = await http.post( Uri.parse( ApiEndpoints.LOGIN_URL ),
+          body: jsonEncode( body ), headers: headers);
 
-     errorMessage.value = json['error'] ?? '';//HANDLES ALL THE ERRORS
+      final json = jsonDecode( response.body );
+      if( response.statusCode == 200 ) { //LOGIN SUCCESS
+        storage.write( loginCheckingKey, true );
+        storage.write( tokenKey, json['token']);
+        emailController.clear();
+        passwordController.clear();
+        Get.offAllNamed(Routes.ARTICLE_VIEW);
+      }
+
+      errorMessage.value = json['error'] ?? '';//HANDLES ALL THE ERRORS
+    }catch(e){
+      errorMessage.value = 'Something went wrong!';
+    }
 
   }
 }
